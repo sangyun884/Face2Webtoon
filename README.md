@@ -9,7 +9,7 @@ Link : https://comic.naver.com/webtoon/list.nhn?titleId=570503
 ![data](https://user-images.githubusercontent.com/71681194/104017792-16240580-51fc-11eb-8382-2e97c9205fe5.JPG)
 
 
-I used anime face detector from https://github.com/nagadomi/lbpcascade_animeface. Since face detector can't extract the faces from webtoon, I could gather 1604 webtoon face images.
+I used anime face detector from https://github.com/nagadomi/lbpcascade_animeface. Since face detector is not that good at detecting the faces from webtoon, I could gather only 1604 webtoon face images.
 
 ## U-GAT-IT
 I used U-GAT-IT official pytorch implementation(https://github.com/znxlwm/UGATIT-pytorch).
