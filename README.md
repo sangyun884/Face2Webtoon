@@ -29,7 +29,7 @@ arXiv: https://arxiv.org/abs/1907.10830
 
 ![gif1](https://user-images.githubusercontent.com/71681194/104342061-c9169b00-553d-11eb-98b1-028c60b513f0.gif)
 
-Some results looks pretty nice, but many result have missing attributes while transfering.
+Some results look pretty nice, but many result have missing attributes while transfering.
 
 #### Gender
 
