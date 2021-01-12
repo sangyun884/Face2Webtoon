@@ -59,7 +59,7 @@ To analysis the result, I seperated webtoon dataset to 5 different groups.
 |2|man_glasses|17->49|
 |3|woman_glasses|15->38|
 
-Even after I collected more data for group 2 and 3, there are severe imbalances between groups. As a result, model failed to translate to spare groups, for example, group 2 and 3.
+Even after I collected more data for group 2 and 3, there are severe imbalances between groups. As a result, model failed to translate to sparse groups, for example, group 2 and 3.
 
 
 
