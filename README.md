@@ -34,13 +34,14 @@ Some results looks pretty nice, but many result have missing attributes while tr
 #### Gender
 
 ![gender](https://user-images.githubusercontent.com/71681194/104342136-db90d480-553d-11eb-9f47-939e1f7e1b0d.jpg)
-Gender information was reversed.
+
+Gender information was lost.
 
 #### Glasses
 
 ![glasses](https://user-images.githubusercontent.com/71681194/104342163-e0ee1f00-553d-11eb-9aec-6c7c7aae64b1.jpg)
 
-A model failed to generate glasses in the webtoon faces. I guess the reason is that only few characters are wearing glasses in webtoon data while many people are wearing glasses in face data. 
+A model failed to generate glasses in the webtoon faces.
 
 ### Result Analysis
 
@@ -56,3 +57,5 @@ To analysis the result, I seperated webtoon dataset to 5 different groups.
 Even after I collected data for group 2 and 3, webtoon dataset has severe imbalances between groups. As a result, source images were translated to dominant group(group 0) so that attributes like gender, glasses were lost.
 
 FID score : 150.23
+
+## U-GAT-IT + Few Shot Transfer
