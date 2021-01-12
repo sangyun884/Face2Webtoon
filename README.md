@@ -4,10 +4,10 @@
 Face2cartoon is interesting task, but there are few researches applying I2I translation to webtoon. I collected dataset from naver webtoon 연애혁명 and tried to transfer human faces to webtoon domain. 
 Link : https://comic.naver.com/webtoon/list.nhn?titleId=570503
 
-## AsianFace <-> love revolution
+## Face Dataset
 I used AFAD-Lite dataset from https://github.com/afad-dataset/tarball-lite. 
 
-![1](https://user-images.githubusercontent.com/71681194/104017206-0bb53c00-51fb-11eb-8e3a-2fbdcb93f1d8.jpg)
+![image](https://user-images.githubusercontent.com/71681194/104359465-08031b80-5553-11eb-97a3-526a800ee411.png)
 
 ## Webtoon Dataset
 
