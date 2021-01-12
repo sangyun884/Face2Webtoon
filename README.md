@@ -27,6 +27,11 @@ arXiv: https://arxiv.org/abs/1907.10830
 
 ![gif1](https://user-images.githubusercontent.com/71681194/104342061-c9169b00-553d-11eb-98b1-028c60b513f0.gif)
 
+
+|FID Score|
+|---|
+|150.23|
+
 Some results look pretty nice, but many result have lost attributes while transfering.
 
 ### Missing of Attributes
@@ -54,8 +59,8 @@ To analysis the result, I seperated webtoon dataset to 5 different groups.
 |2|man_glasses|17->49|
 |3|woman_glasses|15->38|
 
-Even after I collected data for group 2 and 3, webtoon dataset has severe imbalances between groups. As a result, source images were translated to dominant group(group 0) so that attributes like gender, glasses were lost.
+Even after I collected more data for group 2 and 3, there are severe imbalances between groups. As a result, model failed to translate to spare groups, for example, group 2 and 3.
 
-FID score : 150.23
+
 
 ## U-GAT-IT + Few Shot Transfer
