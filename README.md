@@ -28,9 +28,6 @@ arXiv: https://arxiv.org/abs/1907.10830
 ![gif1](https://user-images.githubusercontent.com/71681194/104342061-c9169b00-553d-11eb-98b1-028c60b513f0.gif)
 
 
-|FID Score|
-|---|
-|150.23|
 
 Some results look pretty nice, but many result have lost attributes while transfering.
 
@@ -59,8 +56,30 @@ To analysis the result, I seperated webtoon dataset to 5 different groups.
 |2|man_glasses|17->49|
 |3|woman_glasses|15->38|
 
-Even after I collected more data for group 2 and 3, there are severe imbalances between groups. As a result, model failed to translate to sparse groups, for example, group 2 and 3.
+Even after I collected more data for group 2 and 3, there are severe imbalances between groups. As a result, model failed to translate to few shot groups, for example, group 2 and 3.
 
 
 
 ## U-GAT-IT + Few Shot Transfer
+
+Few shot transfer : arxiv.org/abs/2007.13332
+Paper review : https://yun905.tistory.com/48
+
+In this paper, authors successfully transfered the knowledge from group with enough data to few shot groups which have only 10~15 data. First, they trained basic model, and made branches for few shot groups.
+
+### Basic model
+For basic model, I trained U-GAT-IT between only group 0.
+
+![basic_model1](https://user-images.githubusercontent.com/71681194/105211139-4326cf80-5b8f-11eb-921d-e0b8761a66ad.jpg)
+![basic_model2](https://user-images.githubusercontent.com/71681194/105211143-43bf6600-5b8f-11eb-86d0-8ff37817a003.jpg)
+
+### Baseline 1
+For baseline 1, I freeze the bottleneck layers of generator and tried to fine-tune the basic model. I used 38 images(both real/fake) of group 1,2,3, and added 8 images of group 0 to prevent forgetting. I trained for 200k iterations.
+
+![1](https://user-images.githubusercontent.com/71681194/105213333-ed9ff200-5b91-11eb-96c7-a6d46a272d9f.jpg)
+
+Model randomly mapped between groups.
+
+![graph](https://user-images.githubusercontent.com/71681194/105213709-6141ff00-5b92-11eb-986d-0ba83b106839.JPG)
+
+Discriminator failed to distinguish between reals and fakes.
