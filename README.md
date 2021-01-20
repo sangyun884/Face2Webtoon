@@ -62,7 +62,8 @@ Even after I collected more data for group 2 and 3, there are severe imbalances 
 
 ## U-GAT-IT + Few Shot Transfer
 
-Few shot transfer : arxiv.org/abs/2007.13332
+Few shot transfer : https://arxiv.org/abs/2007.13332
+
 Paper review : https://yun905.tistory.com/48
 
 In this paper, authors successfully transfered the knowledge from group with enough data to few shot groups which have only 10~15 data. First, they trained basic model, and made branches for few shot groups.
