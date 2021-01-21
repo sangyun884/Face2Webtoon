@@ -83,4 +83,4 @@ Model randomly mapped between groups.
 
 ![graph](https://user-images.githubusercontent.com/71681194/105213709-6141ff00-5b92-11eb-986d-0ba83b106839.JPG)
 
-Discriminator failed to distinguish between reals and fakes. Since the distribution overlap exists, it seems that discriminator overfitting does not occured.
+Since the distribution overlap exists, it seems that discriminator overfitting does not occured.
