@@ -16,7 +16,7 @@ I used AFAD-Lite dataset from https://github.com/afad-dataset/tarball-lite.
 
 I used anime face detector from https://github.com/nagadomi/lbpcascade_animeface. Since face detector is not that good at detecting the faces from webtoon, I could gather only 1400 webtoon face images.
 
-## Baseline Results(U-GAT-IT)
+## Baseline 0(U-GAT-IT)
 I used U-GAT-IT official pytorch implementation(https://github.com/znxlwm/UGATIT-pytorch).
 U-GAT-IT is GAN for unpaired image to image translation. By using CAM attention module and adaptive layer instance normalization, it performed well on image translation where considerable shape deformation is required, on various hyperparameter settings. Since shape is very different between two domain, I used this model. 
 
