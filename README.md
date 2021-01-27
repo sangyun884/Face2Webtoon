@@ -85,3 +85,7 @@ Model randomly mapped between groups.
 ![0](https://user-images.githubusercontent.com/71681194/106051720-2c9eec00-612c-11eb-8c73-7c8deba76e1d.jpg)
 
 I attached additional group classifier to discriminator and added group classification loss according to [original paper](https://arxiv.org/abs/2007.13332). Images of group 0,1,2,3 were feeded sequentially, and backpropagation occurred for group 0 only.
+
+|KID*1000|
+|---|
+|25.95|
