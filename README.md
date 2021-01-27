@@ -86,6 +86,7 @@ Model randomly mapped between groups.
 
 I attached additional group classifier to discriminator and added group classification loss according to [original paper](https://arxiv.org/abs/2007.13332). Images of group 0,1,2,3 were feeded sequentially, and backpropagation occurred for group 0 only.
 
+With limited data, bias of FID score is too big. Instead, I used [KID](https://github.com/abdulfatir/gan-metrics-pytorch)
 |KID*1000|
 |---|
 |25.95|
