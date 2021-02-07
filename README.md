@@ -90,3 +90,9 @@ With limited data, bias of FID score is too big. Instead, I used [KID](https://g
 |KID*1000|
 |---|
 |25.95|
+
+## Start training
+
+python main.py --dataset dataset_name --useADA True --group 0,1,2,3 --use_grouploss True --neptune False
+
+If --neptune is True, the experiment is transmitted to neptune ai, which is experiment management tool. You must set your API token. --group 0,1,3 make group 2 out of training.
