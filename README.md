@@ -1,4 +1,4 @@
-# Face2Webtoon
+# WebtooonFaces
 
 ## Introduction
 Face2cartoon is interesting task, but there are few researches applying I2I translation to webtoon. I collected dataset from naver webtoon [연애혁명](https://comic.naver.com/webtoon/list.nhn?titleId=570503) and tried to transfer human faces to webtoon domain. 
