@@ -1,12 +1,13 @@
-# WebtooonFaces
+# Face2webtoon
+
+![merge_from_ofoct (2)](https://user-images.githubusercontent.com/71681194/108319761-35538100-7205-11eb-80fe-aa4ba1400d80.jpg)
+
+![merge_from_ofoct (1)](https://user-images.githubusercontent.com/71681194/108319763-3684ae00-7205-11eb-99ff-f3289ee99498.jpg)
+
 
 ## Introduction
-Face2cartoon is interesting task, but there are few researches applying I2I translation to webtoon. I collected dataset from naver webtoon [연애혁명](https://comic.naver.com/webtoon/list.nhn?titleId=570503) and tried to transfer human faces to webtoon domain. 
+Despite its importance, there are few previous works applying I2I translation to webtoon. I collected dataset from naver webtoon [연애혁명](https://comic.naver.com/webtoon/list.nhn?titleId=570503) and tried to transfer human faces to webtoon domain. 
 
-## Face Dataset
-I used AFAD-Lite dataset from https://github.com/afad-dataset/tarball-lite. 
-
-![image](https://user-images.githubusercontent.com/71681194/104359465-08031b80-5553-11eb-97a3-526a800ee411.png)
 
 ## Webtoon Dataset
 
@@ -18,6 +19,8 @@ I used [anime face detector](https://github.com/nagadomi/lbpcascade_animeface). 
 ## Baseline 0(U-GAT-IT)
 I used [U-GAT-IT official pytorch implementation](https://github.com/znxlwm/UGATIT-pytorch).
 [U-GAT-IT](https://arxiv.org/abs/1907.10830) is GAN for unpaired image to image translation. By using CAM attention module and adaptive layer instance normalization, it performed well on image translation where considerable shape deformation is required, on various hyperparameter settings. Since shape is very different between two domain, I used this model. 
+
+For face data, i used AFAD-Lite dataset from https://github.com/afad-dataset/tarball-lite. 
 
 
 
@@ -90,6 +93,27 @@ With limited data, bias of FID score is too big. Instead, I used [KID](https://g
 |KID*1000|
 |---|
 |25.95|
+
+## U-GAT-IT + group classification loss + adaptive discriminator augmentation
+![ADA](https://arxiv.org/abs/2006.06676) is very useful data augmentation method for training GAN with limited data. Although original paper only handles unconditional GANs, I applied ADA to U-GAT-IT which is conditional GAN. Augmentation was applied to both discriminators, because it is expected that preventing the discriminator of the face domain from overfitting would improve the performance of the face generator and therefore the cycle consistency loss would be more meaningful. Only pixel blitting and geometric transformation have been implemented, as the effects of other augmentation methods are minimal according to paper. The rest will be implemented later.
+
+To achieve better result, I changed face dataset to more diverse one(![CelebA](https://www.kaggle.com/jessicali9530/celeba-dataset)).
+
+
+![merge_from_ofoct (2)](https://user-images.githubusercontent.com/71681194/108319761-35538100-7205-11eb-80fe-aa4ba1400d80.jpg)
+
+![merge_from_ofoct (1)](https://user-images.githubusercontent.com/71681194/108319763-3684ae00-7205-11eb-99ff-f3289ee99498.jpg)
+
+
+
+![image](https://user-images.githubusercontent.com/71681194/108319007-199bab00-7204-11eb-9cc9-08f3d199816d.png)
+
+ADA makes training longer. It took 8 days with single 2070 SUPER, but did not converged completely.
+
+|KID*1000|
+|---|
+|12.14|
+
 
 ## Start training
 
