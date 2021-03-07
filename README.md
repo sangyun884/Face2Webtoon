@@ -114,6 +114,10 @@ ADA makes training longer. It took 8 days with single 2070 SUPER, but did not co
 |---|
 |12.14|
 
+## Checkpoint file
+
+https://drive.google.com/file/d/1uS5-3iIbYeh_aau0ydNkTO5aRhJWw0jX/view?usp=sharing
+
 
 ## Start training
 
