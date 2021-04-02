@@ -252,7 +252,7 @@ class UGATIT(object) :
         best_kid = 35
         if self.neptune:
             neptune.init(project_qualified_name='ml.swlee/face2webtoon',
-                        api_token = 'eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5haSIsImFwaV91cmwiOiJodHRwczovL3VpLm5lcHR1bmUuYWkiLCJhcGlfa2V5IjoiYmVhNmFlOGMtZDRmZS00NzIyLWJkYzgtNTcyZTk0ZTM5YzM1In0=')
+                        api_token = '')
             neptune.create_experiment(params=self.params)
 
         start_iter = 1
