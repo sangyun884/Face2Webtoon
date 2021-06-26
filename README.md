@@ -6,7 +6,7 @@
 
 
 ## Introduction
-Despite its importance, there are few previous works applying I2I translation to webtoon. I collected dataset from naver webtoon [연애혁명](https://comic.naver.com/webtoon/list.nhn?titleId=570503) and tried to transfer human faces to webtoon domain. 
+Image to image (I2I) translation is an extremely challenging task, especially when data is insufficient. This work aims at transferring human faces to the webtoon domain.
 
 
 ## Webtoon Dataset
@@ -14,11 +14,11 @@ Despite its importance, there are few previous works applying I2I translation to
 ![data](https://user-images.githubusercontent.com/71681194/104342339-1266ea80-553e-11eb-9e4f-8cd7cbaef418.JPG)
 
 
-I used [anime face detector](https://github.com/nagadomi/lbpcascade_animeface). Since face detector is not that good at detecting the faces from webtoon, I could gather only 1400 webtoon face images.
+I collected dataset from naver webtoon [연애혁명](https://comic.naver.com/webtoon/list.nhn?titleId=570503) using [anime face detector](https://github.com/nagadomi/lbpcascade_animeface). Since face detector is not that good at detecting the faces from webtoon, I could gather only 1400 webtoon face images.
 
 ## Baseline 0(U-GAT-IT)
 I used [U-GAT-IT official pytorch implementation](https://github.com/znxlwm/UGATIT-pytorch).
-[U-GAT-IT](https://arxiv.org/abs/1907.10830) is GAN for unpaired image to image translation. By using CAM attention module and adaptive layer instance normalization, it performed well on image translation where considerable shape deformation is required, on various hyperparameter settings.
+[U-GAT-IT](https://arxiv.org/abs/1907.10830) is GAN for an unpaired I2I translation. Using CAM attention module and adaptive layer instance normalization, it performed well on I2I translation where considerable shape deformation is required.
 
 For face data, i used AFAD-Lite dataset from https://github.com/afad-dataset/tarball-lite. 
 
