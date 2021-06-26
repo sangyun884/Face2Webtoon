@@ -95,7 +95,7 @@ Since FID has a significant amount of bias when training with a limited data, I 
 |25.95|
 
 ## U-GAT-IT + group classification loss + adaptive discriminator augmentation
-[ADA](https://arxiv.org/abs/2006.06676) is a useful data augmentation method for training GAN with limited data. Although the authors only considered unconditional GANs, I applied ADA to U-GAT-IT. Augmentation was applied to both discriminators. I assumed that preventing the discriminator of the face domain from overfitting would improve the performance of the face generator. Therefore the cycle consistency loss would be more meaningful. Only pixel blitting and geometric transformation was implemented. The effects of other augmentation methods are minimal, according to the paper.
+[ADA](https://arxiv.org/abs/2006.06676) is a useful data augmentation method for training GAN with limited data. Although the authors only considered unconditional GANs, I applied ADA to U-GAT-IT. Augmentation was applied to both discriminators. I assumed that preventing the discriminator of the face domain from overfitting would improve the performance of the face generator. Therefore the cycle consistency loss would be more meaningful. Only pixel blitting and geometric transformation was implemented. The effects of other augmentation methods are minor, according to the paper.
 
 To achieve better result, I changed face dataset to more diverse one([CelebA](https://www.kaggle.com/jessicali9530/celeba-dataset)).
 
