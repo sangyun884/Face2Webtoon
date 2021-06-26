@@ -18,7 +18,7 @@ I collected dataset from naver webtoon [연애혁명](https://comic.naver.com/we
 
 ## Baseline 0(U-GAT-IT)
 I used [U-GAT-IT official pytorch implementation](https://github.com/znxlwm/UGATIT-pytorch).
-[U-GAT-IT](https://arxiv.org/abs/1907.10830) is GAN for an unpaired I2I translation. Using CAM attention module and adaptive layer instance normalization, it performed well on I2I translation where considerable shape deformation is required.
+[U-GAT-IT](https://arxiv.org/abs/1907.10830) is GAN for an unpaired I2I translation. Using CAM attention module and adaptive layer instance normalization, it performed well when considerable shape deformation is required.
 
 For face data, i used AFAD-Lite dataset from https://github.com/afad-dataset/tarball-lite. 
 
