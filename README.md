@@ -6,7 +6,7 @@
 
 
 ## Introduction
-Image to image (I2I) translation is an extremely challenging task, especially when data is insufficient. This work aims at transferring human faces to the webtoon domain.
+Image to image (I2I) translation is an extremely challenging task, especially when data is insufficient. This work aims at transferring human faces to the webtoon domain with limited data.
 
 
 ## Webtoon Dataset
