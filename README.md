@@ -18,7 +18,7 @@ I used [anime face detector](https://github.com/nagadomi/lbpcascade_animeface). 
 
 ## Baseline 0(U-GAT-IT)
 I used [U-GAT-IT official pytorch implementation](https://github.com/znxlwm/UGATIT-pytorch).
-[U-GAT-IT](https://arxiv.org/abs/1907.10830) is GAN for unpaired image to image translation. By using CAM attention module and adaptive layer instance normalization, it performed well on image translation where considerable shape deformation is required, on various hyperparameter settings. Since shape is very different between two domain, I used this model. 
+[U-GAT-IT](https://arxiv.org/abs/1907.10830) is GAN for unpaired image to image translation. By using CAM attention module and adaptive layer instance normalization, it performed well on image translation where considerable shape deformation is required, on various hyperparameter settings.
 
 For face data, i used AFAD-Lite dataset from https://github.com/afad-dataset/tarball-lite. 
 
@@ -31,7 +31,7 @@ For face data, i used AFAD-Lite dataset from https://github.com/afad-dataset/tar
 
 
 
-Some results look pretty nice, but many result have lost attributes while transfering.
+Some results look pretty nice, but some attributes were lost during the domain transfer.
 
 ### Missing of Attributes
 
@@ -58,7 +58,7 @@ To analysis the result, I seperated webtoon dataset to 5 different groups.
 |2|man_glasses|17->49|
 |3|woman_glasses|15->38|
 
-Even after I collected more data for group 2 and 3, there are severe imbalances between groups. As a result, model failed to translate to few shot groups, for example, group 2 and 3.
+Even after I collected more data for groups 2 and 3, there are severe imbalances between groups. As a result, the model failed to translate to few shot groups, for example, groups 2 and 3.
 
 
 
@@ -68,16 +68,16 @@ Few shot transfer : https://arxiv.org/abs/2007.13332
 
 Paper review : https://yun905.tistory.com/48
 
-In this paper, authors successfully transfered the knowledge from group with enough data to few shot groups which have only 10~15 data. First, they trained basic model, and made branches for few shot groups.
+In this paper, the authors successfully transferred the knowledge from the group with enough data to few shot groups.
 
 ### Basic model
-For basic model, I trained U-GAT-IT between only group 0.
+The basic model was trained for group 0 only.
 
 ![basic_model1](https://user-images.githubusercontent.com/71681194/105211139-4326cf80-5b8f-11eb-921d-e0b8761a66ad.jpg)
 ![basic_model2](https://user-images.githubusercontent.com/71681194/105211143-43bf6600-5b8f-11eb-86d0-8ff37817a003.jpg)
 
 ### Baseline 1 (simple fine-tuning)
-For baseline 1, I freeze the bottleneck layers of generator and tried to fine-tune the basic model. I used 38 images(both real/fake) of group 1,2,3, and added 8 images of group 0 to prevent forgetting. I trained for 200k iterations.
+For baseline 1, I froze the bottleneck layers of the generator and tried to fine-tune the basic model. I used 38 images(both real/fake) of groups 1,2 and 3. Additionally, I also used 8 images of group 0 to prevent forgetting. The model was trained for 200k iterations.
 
 ![1](https://user-images.githubusercontent.com/71681194/105213333-ed9ff200-5b91-11eb-96c7-a6d46a272d9f.jpg)
 
@@ -87,15 +87,15 @@ Model randomly mapped between groups.
 
 ![0](https://user-images.githubusercontent.com/71681194/106051720-2c9eec00-612c-11eb-8c73-7c8deba76e1d.jpg)
 
-I attached additional group classifier to discriminator and added group classification loss according to [original paper](https://arxiv.org/abs/2007.13332). Images of group 0,1,2,3 were feeded sequentially, and bottleneck layers of generator were updated for group 0 only.
+I attached additional group classifier to discriminator and added group classification loss according to [original paper](https://arxiv.org/abs/2007.13332). Images of groups 0,1,2,3 were fed sequentially, and bottleneck layers of the generator were updated for group 0 only.
 
-With limited data, bias of FID score is too big. Instead, I used [KID](https://github.com/abdulfatir/gan-metrics-pytorch)
+Since FID has a significant amount of bias when training with a limited data, I used [KID](https://github.com/abdulfatir/gan-metrics-pytorch)
 |KID*1000|
 |---|
 |25.95|
 
 ## U-GAT-IT + group classification loss + adaptive discriminator augmentation
-[ADA](https://arxiv.org/abs/2006.06676) is very useful data augmentation method for training GAN with limited data. Although original paper only handles unconditional GANs, I applied ADA to U-GAT-IT which is conditional GAN. Augmentation was applied to both discriminators, because it is expected that preventing the discriminator of the face domain from overfitting would improve the performance of the face generator and therefore the cycle consistency loss would be more meaningful. Only pixel blitting and geometric transformation have been implemented, as the effects of other augmentation methods are minimal according to paper. The rest will be implemented later.
+[ADA](https://arxiv.org/abs/2006.06676) is a useful data augmentation method for training GAN with limited data. Although the authors only considered unconditional GANs, I applied ADA to U-GAT-IT. Augmentation was applied to both discriminators. I assumed that preventing the discriminator of the face domain from overfitting would improve the performance of the face generator. Therefore the cycle consistency loss would be more meaningful. Only pixel blitting and geometric transformation was implemented. The effects of other augmentation methods are minimal, according to the paper.
 
 To achieve better result, I changed face dataset to more diverse one([CelebA](https://www.kaggle.com/jessicali9530/celeba-dataset)).
 
@@ -108,7 +108,7 @@ To achieve better result, I changed face dataset to more diverse one([CelebA](ht
 
 ![image](https://user-images.githubusercontent.com/71681194/108319007-199bab00-7204-11eb-9cc9-08f3d199816d.png)
 
-ADA makes training longer. It took 8 days with single 2070 SUPER, but did not converged completely.
+ADA makes training longer. I trained for 8 days with a single 2070 SUPER but did not fully converge.
 
 |KID*1000|
 |---|
